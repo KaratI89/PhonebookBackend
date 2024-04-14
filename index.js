@@ -43,7 +43,7 @@ app.get('/info', (request, response) =>{
     response.send(`Phone book has info for ${getPersonNumber} people</br> ${getData}`)
 })
 
-app.get('/api/person/:id', (request, response) => {
+app.get('/api/persons/:id', (request, response) => {
     const id = Number(request.params.id)
     person = people.find(person=> person.id === id)
     if (person) {
@@ -55,7 +55,7 @@ app.get('/api/person/:id', (request, response) => {
     }
 })
 
-app.delete('/api/person/:id', (request, response) => {
+app.delete('/api/persons/:id', (request, response) => {
     const id = Number(request.params.id)
     people = people.filter(person=> person.id !== id)
     response.status(204).end()
